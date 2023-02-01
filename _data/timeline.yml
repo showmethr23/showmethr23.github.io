@@ -1,17 +1,32 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- title: IT Programmer
+  from: 2023
+  to: Present
+  description: Working for Kumho Tire Georgia as IT Programmer. 
+               
 
-- title: Software Engineer, Google, UK
-  from: 2018
-  to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- title: Student, University of Bridgeport
+  from: 2020
+  to: 2022
+  description: Completed Mathematics and Computer Science degrees in the University of Bridgeport.
+
+
+
+- title: Backend Software Engineer Intern
+  from: 2021 July
+  to: 2021 August
+  description: Working
+
+
+
+
+
+
+
+
+
+
+
+# - title: 
+#   from: 
+#   to: 
+#   description: 
