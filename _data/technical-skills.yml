@@ -1,0 +1,15 @@
+- name: Django
+  percentage: 95
+  color: juniper
+
+- name: Spring
+  percentage: 90
+  color: green
+
+- name: AWS
+  percentage: 90
+  color: (255,153,0)
+
+- name: MySQL
+  percentage: 90
+  color: success
