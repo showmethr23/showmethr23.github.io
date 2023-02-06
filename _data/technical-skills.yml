@@ -1,15 +1,15 @@
 - name: Django
   percentage: 95
-  color: juniper
+  color: success
 
 - name: Spring
   percentage: 90
-  color: #7CBB5D
+  color: success
 
 - name: AWS
   percentage: 90
-  color: #FF9900
+  color : 00ab6c
 
 - name: MySQL
   percentage: 90
-  color: success
+  color: secondary
