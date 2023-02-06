@@ -4,11 +4,11 @@
 
 - name: Spring
   percentage: 90
-  color: green
+  color: 7CBB5D
 
 - name: AWS
   percentage: 90
-  color: (255,153,0)
+  color: FF9900
 
 - name: MySQL
   percentage: 90
