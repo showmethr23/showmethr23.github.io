@@ -8,7 +8,7 @@
 
 - name: AWS
   percentage: 90
-  color : 00ab6c
+  color : light
 
 - name: MySQL
   percentage: 90
