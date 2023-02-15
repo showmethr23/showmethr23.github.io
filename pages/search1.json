@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /search1.json
+---
+[
+  {% for algorithm in site.algorithms %}
+    {
+      "title"    : "{{ algorithm.title | escape }}",
+      "category" : "{{ algorithm.category }}",
+      "tags"     : "{{ algorithm.tags | join: ', ' }}",
+      "url"      : "{{ algorithm.external_url | default: algorithm.url | relative_url }}",
+      "date"     : "{{ algorithm.date }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
