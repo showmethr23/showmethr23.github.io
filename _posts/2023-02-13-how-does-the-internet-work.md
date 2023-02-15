@@ -6,7 +6,7 @@ color: info
 description: Let's find out how long internet is invented.
 ---
 
-Source: [Nikhil Thota](https://medium.com/@nikhilthota/digital-minimalism-ac083064b4e4)
+Source: [Jun Jun](https://medium.com/@Junyeong_Choi/how-does-the-internet-work-d9baa372a211)
 
 # The Beginning of the Internet
 The Internet began as a research project funded by the US Army in the 1960s. When the United States fell behind in launching the first artificial satellite to the Soviet Union, the United States established ARPA (Advanced Research Project Agency) to research new technologies, and in 1969 developed ARPANET, which is the mother of the present web. ARPANET is a system that can safely store and transmit data in the communication system in preparation for a nuclear attack. Previously, it was based on centralized data, but after World War II, weapons that can strike a wide area beyond the nuclear continent were developed, and they felt the threat of centralization of data and tried to distribute data. As a result, it was necessary to create a central communication system that connects each data center, and ARPANET was born.
@@ -56,9 +56,15 @@ Figure 3.
 
 In this way, it was possible to build a network by connecting computers. However, due to physical limitations, it was difficult to connect computers that are far away, and to solve this problem, they began to use telephone cables. Even before the spread of the Internet, telephone connection was possible anywhere in the world, so special equipment called a modem was required to connect to telephone facilities. The modem turned the computer's network information into information that could be processed by the telephone facility.
 
+<img src="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work/internet-schema-6.png" width="600" height="350" class="center">&nbsp;
+Figure 4.
+
+
 Our computer network connects to the telephone facility and passes information to other networks. To do so, you need to connect to an Internet Service Provider (ISP), which is a company that manages the special routers to which each router is connected and can also access the ISP's router. Therefore, information is transferred from our network to networks in other regions through the ISP.
 
 &nbsp;
 # Find computer
 
 To send a message to a computer, you must point to a specific computer to receive the message, which is sent to a unique address called IP (Internet Protocol). An IP address is an address consisting of a dot and four numbers. For example `127.0.0.1` Since these numbers are difficult for humans to remember, they have human readable IP addresses called domains. For example, `'google.com'` is `'173.194.121.32'` as an IP address. By using a domain, people can easily remember and use it.
+
+Source: https://developer.mozilla.org/ko/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work
