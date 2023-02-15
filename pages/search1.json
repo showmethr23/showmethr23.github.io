@@ -7,7 +7,7 @@ permalink: /search1.json
     {
       "title"    : "{{ algorithm.title | escape }}",
       "category" : "{{ algorithm.category }}",
-      "tags"     : "{{ algorithm.tags | join: ', ' }}",
+      "tags"     : "{{ algorithm.tags1 | join: ', ' }}",
       "url"      : "{{ algorithm.external_url | default: algorithm.url | relative_url }}",
       "date"     : "{{ algorithm.date }}"
     } {% unless forloop.last %},{% endunless %}
