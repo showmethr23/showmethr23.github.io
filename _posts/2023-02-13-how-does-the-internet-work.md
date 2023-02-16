@@ -3,7 +3,7 @@ title: How Does The Internet Work?
 tags: [Internet, Technology]
 style: fill
 color: info
-description: Let's find out how long internet is invented.
+description: We will see the history of the internet and learn a little bit of network.
 ---
 
 
@@ -65,5 +65,7 @@ Our computer network connects to the telephone facility and passes information t
 # Find computer
 
 To send a message to a computer, you must point to a specific computer to receive the message, which is sent to a unique address called IP (Internet Protocol). An IP address is an address consisting of a dot and four numbers. For example `127.0.0.1` Since these numbers are difficult for humans to remember, they have human readable IP addresses called domains. For example, `'google.com'` is `'173.194.121.32'` as an IP address. By using a domain, people can easily remember and use it.
+
+&nbsp;
 
 Source: https://developer.mozilla.org/ko/docs/Learn/Common_questions/Web_mechanics/How_does_the_Internet_work
