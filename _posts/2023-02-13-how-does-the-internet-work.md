@@ -6,7 +6,6 @@ color: info
 description: Let's find out how long internet is invented.
 ---
 
-Source: [Jun Jun](https://medium.com/@Junyeong_Choi/how-does-the-internet-work-d9baa372a211)
 
 # The Beginning of the Internet
 The Internet began as a research project funded by the US Army in the 1960s. When the United States fell behind in launching the first artificial satellite to the Soviet Union, the United States established ARPA (Advanced Research Project Agency) to research new technologies, and in 1969 developed ARPANET, which is the mother of the present web. ARPANET is a system that can safely store and transmit data in the communication system in preparation for a nuclear attack. Previously, it was based on centralized data, but after World War II, weapons that can strike a wide area beyond the nuclear continent were developed, and they felt the threat of centralization of data and tried to distribute data. As a result, it was necessary to create a central communication system that connects each data center, and ARPANET was born.
