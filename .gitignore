@@ -10,3 +10,7 @@ Gemfile.lock
 
 # Log Files
 *.log
+
+
+# Colors
+# primary, secondary, success, danger, warning, info, light, dark
