@@ -1,31 +1,22 @@
 ---
-title: DSA Intro
-tags: [DSA, Algorithm]
+title: Python Interpreter
+tags: [Python, Programming Language]
 style: fill
-color: dark
-description: Introduction of Data Structure and Algorithm
+color: light
+description: Using the Python Interpreter
 ---
 
-## What is Data Structure
->A data structure is a storage that is used to store and organize data. It is a way of arranging data on a computer so that it can be accessed and updated efficiently
-
-There are basic and advanced types of data structures that are used in every software system. We need to have good knowledge about the data structures to understand programs better.
-
-
-
-
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20220520182504/ClassificationofDataStructure-660x347.jpg" width="600" height="350" class="center">
+<img src="https://www.pngmart.com/files/7/Python-Transparent-Background.png" width="600" height="350" class="center">
 &nbsp;
 
-- Linear Data Structure
-    Data elements are arranged sequentially or linearly, where each element is attached to its previous and next adjacent elements. This is called a linear data structure. For example, array, stack, queue, linked-list are linear data structures.
-    - Static data structure
-        Static data structure has a fixed memory size. This is an example of an array. It has the fixed size. If it is over memory size, we need to create another array and link them with the pointers, which is linked-list.
-    - Dynamic data structure
-        Dynamic data structure has not-fixed memory size. It can be randomly updated during the runtime which may be considered efficient concerning the memory (space) complexity of the code.
-        Examples of dynamic data structure are queue, stack.
-- Non-linear data structure
-    Data elements are not arranged sequentially or linearly are called Non-linear data structures. Non-linear data structure can not be traversed all the elements in a single run ony. Example of non-linear data structures are trees and graphs
+# 2. Using the Python Interpreter
+## 2.1 Invoking the Interpreter
+Default location for python interpreter is at `/usr/local/bin/python3.11` You can use `/usr/local/bin` in your shell command, then type the command `python3.11` to start the interpreter. 
+
+## 2.1.1 Argument Passing
+
+
+
 
 Source: 
-https://www.geeksforgeeks.org/data-structures/
+https://docs.python.org/3/tutorial/interpreter.html
