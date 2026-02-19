@@ -16,7 +16,8 @@
 }
 
 html {
-  font-size: clamp(14px, 1vw + 0.5rem, 16px);
+  /* 375px → 16px / 1440px → 18px / 2560px → 18px(cap) */
+  font-size: clamp(16px, 0.8vw + 0.8rem, 18px);
 }
 
 body {
@@ -25,12 +26,19 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* 모든 페이지가 공유하는 컨테이너 */
+/*
+  width: 90% → 양쪽 5% 여백으로 자연스럽게 숨쉬는 느낌
+  max-width: 1080px → 가독성 최적 너비 (너무 넓으면 시선이 흩어짐)
+
+  1440px 화면 → 1080px 콘텐츠 (중앙 정렬, 양옆 180px 여백)
+  1920px 화면 → 1080px 콘텐츠 (양옆 420px 여백)
+  1280px 화면 → 1080px 콘텐츠 (양옆 100px 여백)
+  768px  화면 → 691px  콘텐츠
+  375px  화면 → 338px  콘텐츠
+*/
 .page-container {
-  width: 100%;
-  max-width: 1024px;
+  width: 90%;
+  max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: clamp(1.25rem, 5vw, 4rem);
-  padding-right: clamp(1.25rem, 5vw, 4rem);
 }
