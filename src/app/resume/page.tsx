@@ -23,29 +23,32 @@ const typeLabel: Record<string, string> = {
   military:  "Military",
 };
 
-const skillColors: Record<string, { bg: string; text: string; border: string }> = {
-  "HTML5/CSS3": { bg: "#FFF0EB", text: "#C4330F", border: "#FCCFBE" },
-  "Python":     { bg: "#EEF4FF", text: "#2B5B8E", border: "#BFCFE8" },
-  "Java":       { bg: "#FFF7ED", text: "#B85C00", border: "#F9D8A8" },
-  "Django":     { bg: "#ECFDF5", text: "#065F46", border: "#A7F3D0" },
-  "Spring":     { bg: "#F0FDF4", text: "#15803D", border: "#86EFAC" },
-  "AWS":        { bg: "#FFFBEB", text: "#92400E", border: "#FDE68A" },
-  "MySQL":      { bg: "#EFF6FF", text: "#1A5F9A", border: "#BFDBFE" },
+// 각 기술의 프로그레스 바 색상
+const barColors: Record<string, string> = {
+  "HTML5/CSS3": "#E44D26",
+  "Python":     "#3776AB",
+  "Java":       "#C07520",
+  "Django":     "#092E20",
+  "Spring":     "#6DB33F",
+  "AWS":        "#FF9900",
+  "MySQL":      "#4479A1",
 };
 
-function SkillBadge({ name }: { name: string }) {
-  const color = skillColors[name];
+function SkillBar({ name, percentage }: { name: string; percentage: number }) {
+  const color = barColors[name] ?? "#6b6862";
   return (
-    <span
-      className="px-3 py-1.5 text-sm font-semibold rounded-lg"
-      style={
-        color
-          ? { backgroundColor: color.bg, color: color.text, border: `1px solid ${color.border}` }
-          : { backgroundColor: "#fff", color: "#1c1a17", border: "1px solid #e8e3d9" }
-      }
-    >
-      {name}
-    </span>
+    <div>
+      <div className="flex justify-between items-center mb-1.5">
+        <span className="text-sm font-semibold" style={{ color }}>{name}</span>
+        <span className="text-xs font-medium" style={{ color }}>{percentage}%</span>
+      </div>
+      <div className="w-full bg-[#e8e3d9] rounded-full h-2">
+        <div
+          className="h-2 rounded-full transition-all"
+          style={{ width: `${percentage}%`, backgroundColor: color }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -82,25 +85,25 @@ export default function Resume() {
 
         {/* ── Skills ── */}
         <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-[#6b6862] text-center mb-7">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-[#6b6862] text-center mb-8">
             Skills
           </h2>
-          <div className="flex flex-col sm:flex-row gap-8">
+          <div className="w-3/4 mx-auto flex flex-col sm:flex-row gap-10">
 
-            <div className="flex-1">
-              <p className="text-sm font-medium text-[#1c1a17] mb-3">Languages</p>
-              <div className="flex flex-wrap gap-2.5">
-                {languages.map(skill => <SkillBadge key={skill.name} name={skill.name} />)}
-              </div>
+            <div className="flex-1 space-y-5">
+              <p className="text-lg font-semibold text-[#1c1a17] mb-4">Languages</p>
+              {languages.map(skill => (
+                <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
+              ))}
             </div>
 
             <div className="hidden sm:block w-px bg-[#e8e3d9]" />
 
-            <div className="flex-1">
-              <p className="text-sm font-medium text-[#1c1a17] mb-3">Frameworks & Tools</p>
-              <div className="flex flex-wrap gap-2.5">
-                {technicalSkills.map(skill => <SkillBadge key={skill.name} name={skill.name} />)}
-              </div>
+            <div className="flex-1 space-y-5">
+              <p className="text-lg font-semibold text-[#1c1a17] mb-4">Frameworks & Tools</p>
+              {technicalSkills.map(skill => (
+                <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
+              ))}
             </div>
 
           </div>
@@ -110,7 +113,7 @@ export default function Resume() {
 
         {/* ── Experience & Education ── */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-[#6b6862] text-center mb-8">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-[#6b6862] text-center mb-8">
             Experience & Education
           </h2>
 
