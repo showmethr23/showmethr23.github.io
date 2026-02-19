@@ -1,26 +1,37 @@
 
 import { languages, Language } from '@/data/languages';
 import { technicalSkills, Skill } from '@/data/technical-skills';
-import { timeline, TimelineEvent } from '@/data/timeline';
+import { timeline } from '@/data/timeline';
 
 const authorName = "Junyeong Choi";
 
-function Skills({ title, skills }: { title: string, skills: (Language[] | Skill[]) }) {
+function getSkillColor(color: string) {
+  switch (color) {
+    case 'danger':    return '#dc3545';
+    case 'primary':   return '#007bff';
+    case 'success':   return '#28a745';
+    case 'light':     return '#adb5bd';
+    case 'secondary': return '#6c757d';
+    default:          return color;
+  }
+}
+
+function Skills({ title, skills }: { title: string; skills: Language[] | Skill[] }) {
   return (
-    <div className="w-full md:w-1/2 p-4">
-      <h3 className="text-xl font-bold mb-4">{title}</h3>
-      <ul>
+    <div className="w-full md:w-1/2">
+      <h3 className="text-base font-semibold text-[#1c1a17] mb-4">{title}</h3>
+      <ul className="space-y-3">
         {skills.map((skill, index) => (
-          <li key={index} className="mb-2">
-            <div className="flex justify-between">
-              <span>{skill.name}</span>
-              <span>{skill.percentage}%</span>
+          <li key={index}>
+            <div className="flex justify-between text-sm mb-1">
+              <span className="text-[#1c1a17]">{skill.name}</span>
+              <span className="text-[#6b6862]">{skill.percentage}%</span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div 
-                className={`h-2.5 rounded-full`} 
+            <div className="w-full bg-[#e8e3d9] rounded-full h-1.5">
+              <div
+                className="h-1.5 rounded-full"
                 style={{ width: `${skill.percentage}%`, backgroundColor: getSkillColor(skill.color) }}
-              ></div>
+              />
             </div>
           </li>
         ))}
@@ -29,32 +40,24 @@ function Skills({ title, skills }: { title: string, skills: (Language[] | Skill[
   );
 }
 
-// Helper to map Jekyll colors to Tailwind/CSS colors
-function getSkillColor(color: string) {
-    switch (color) {
-        case 'danger': return '#dc3545';
-        case 'primary': return '#007bff';
-        case 'success': return '#28a745';
-        case 'light': return '#f8f9fa';
-        case 'secondary': return '#6c757d';
-        default: return color;
-    }
-}
-
-
 function Timeline() {
   return (
-    <div className="w-full p-4">
-      <h3 className="text-xl font-bold mb-4">Timeline</h3>
-      <div className="relative border-l border-gray-200 dark:border-gray-700">
+    <div className="w-full">
+      <h3 className="text-base font-semibold text-[#1c1a17] mb-6">Timeline</h3>
+      <div className="relative border-l border-[#e8e3d9]">
         {timeline.map((event, index) => (
-          <div key={index} className="mb-10 ml-4">
-            <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-            <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              {event.from} - {event.to}
+          <div key={index} className="mb-8 ml-6">
+            <span className="absolute -left-[5px] w-2.5 h-2.5 rounded-full bg-[#f7f4ef] border-2 border-[#c9c4ba] mt-1" />
+            <time className="block text-xs text-[#6b6862] mb-1">
+              {event.from} – {event.to}
             </time>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{event.title}</h3>
-            <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{event.description}</p>
+            <h4 className="text-sm font-semibold text-[#1c1a17]">{event.title}</h4>
+            {event.subtitle && (
+              <p className="text-xs text-[#6b6862] mt-0.5">{event.subtitle}</p>
+            )}
+            {event.description && (
+              <p className="text-sm text-[#6b6862] mt-1 leading-relaxed">{event.description}</p>
+            )}
           </div>
         ))}
       </div>
@@ -64,23 +67,25 @@ function Timeline() {
 
 export default function About() {
   return (
-    <section className="py-24">
-      <div className="container px-4 mx-auto">
-        <h1 className="text-3xl font-bold mb-4">About Me</h1>
-        <p className="mb-8 text-lg">
-          Hi I am <strong>{authorName}</strong> 👋,
-          <br />
-          :)
+    <section className="py-20">
+      <div className="page-container">
+        <h1 className="text-3xl font-bold text-[#1c1a17] mb-3">About Me</h1>
+        <p className="text-[#6b6862] mb-12 text-base leading-relaxed">
+          Hi, I am <strong className="text-[#1c1a17]">{authorName}</strong> 👋
         </p>
 
-        <div className="flex flex-wrap -mx-4">
+        <h2 className="text-[10px] font-semibold uppercase tracking-widest text-[#6b6862] mb-6">
+          Skills
+        </h2>
+        <div className="flex flex-col md:flex-row gap-10 mb-14">
           <Skills title="Languages" skills={languages} />
-          <Skills title="Technical-Skills" skills={technicalSkills} />
+          <Skills title="Technical Skills" skills={technicalSkills} />
         </div>
 
-        <div className="flex flex-wrap -mx-4">
-          <Timeline />
-        </div>
+        <h2 className="text-[10px] font-semibold uppercase tracking-widest text-[#6b6862] mb-6">
+          Experience & Education
+        </h2>
+        <Timeline />
       </div>
     </section>
   );

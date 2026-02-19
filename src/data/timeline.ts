@@ -1,34 +1,60 @@
 
 export type TimelineEvent = {
   title: string;
+  subtitle?: string;
   from: string | number;
   to: string | number;
-  description: string;
+  description?: string;
+  bullets?: string[];
+  type?: 'work' | 'education' | 'military';
 };
 
 export const timeline: TimelineEvent[] = [
   {
     title: "Kumho Tire Georgia",
+    subtitle: "IT Programmer",
     from: 2023,
     to: "Present",
-    description: "I am currently working as IT programmer for Kumho Tire Georgia.",
+    type: "work",
+    bullets: [
+      // 예시: "Developed internal ERP tools using Spring Boot and AWS",
+    ],
+  },
+  {
+    title: "Georgia Institute of Technology",
+    subtitle: "M.S. Computer Science",
+    from: "2024 Fall",
+    to: "Present",
+    type: "education",
+    bullets: [
+      // 예시: "Developed internal ERP tools using Spring Boot and AWS",
+    ],
   },
   {
     title: "University of Bridgeport",
+    subtitle: "B.S. Computer Science",
     from: 2020,
     to: 2022,
-    description: "Completed Mathematics and Computer Science degrees in the University of Bridgeport.",
-  },
-  {
-    title: "Speechout",
-    from: "2021 July",
-    to: "2021 August",
-    description: "I worked as backend software engineer intern for Speechout.",
+    type: "education",
+    bullets: [
+      // 예시: "Graduated with honors",
+    ],
   },
   {
     title: "Republic of Korea Army",
-    from: "2018 Oct",
-    to: "2020 June",
-    description: "",
+    subtitle: "Mandatory Military Service",
+    from: 2018,
+    to: 2020,
+    type: "military",
+  },
+  {
+    title: "University of Bridgeport",
+    subtitle: "B.S. Mathematics ",
+    from: 2018,
+    to: 2014,
+    type: "education",
+    bullets: [
+      // 예시: "Graduated with honors",
+    ],
   },
 ];
