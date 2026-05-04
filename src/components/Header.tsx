@@ -15,11 +15,11 @@ const Header = () => {
           <Link href="/projects" className="px-3 lg:px-4 py-2 text-sm text-[#6b6862] hover:text-[#1c1a17] rounded-md hover:bg-[#f7f4ef] transition-colors whitespace-nowrap">
             Projects
           </Link>
-          <Link href="/about" className="px-3 lg:px-4 py-2 text-sm text-[#6b6862] hover:text-[#1c1a17] rounded-md hover:bg-[#f7f4ef] transition-colors whitespace-nowrap">
-            About
-          </Link>
           <Link href="/resume" className="px-3 lg:px-4 py-2 text-sm text-[#6b6862] hover:text-[#1c1a17] rounded-md hover:bg-[#f7f4ef] transition-colors whitespace-nowrap">
             Resume
+          </Link>
+          <Link href="/about" className="px-3 lg:px-4 py-2 text-sm text-[#6b6862] hover:text-[#1c1a17] rounded-md hover:bg-[#f7f4ef] transition-colors whitespace-nowrap">
+            About
           </Link>
         </nav>
       </div>
