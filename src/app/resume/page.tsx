@@ -1,7 +1,6 @@
 
 import { Mail, Github, Linkedin } from 'lucide-react';
-import { languages } from '@/data/languages';
-import { technicalSkills } from '@/data/technical-skills';
+import { skillCategories } from '@/data/skills';
 import { timeline } from '@/data/timeline';
 
 const author = {
@@ -12,44 +11,27 @@ const author = {
 };
 
 const typeBadge: Record<string, string> = {
-  work:      "bg-blue-50 text-blue-500",
+  work: "bg-blue-50 text-blue-500",
   education: "bg-emerald-50 text-emerald-600",
-  military:  "bg-stone-100 text-stone-500",
+  military: "bg-stone-100 text-stone-500",
 };
 
 const typeLabel: Record<string, string> = {
-  work:      "Work",
+  work: "Work",
   education: "Education",
-  military:  "Military",
+  military: "Military",
 };
 
-// 각 기술의 프로그레스 바 색상
-const barColors: Record<string, string> = {
-  "HTML5/CSS3": "#E44D26",
-  "Python":     "#3776AB",
-  "Java":       "#C07520",
-  "Django":     "#092E20",
-  "Spring":     "#6DB33F",
-  "AWS":        "#FF9900",
-  "MySQL":      "#4479A1",
-};
-
-function SkillBar({ name, percentage }: { name: string; percentage: number }) {
-  const color = barColors[name] ?? "#6b6862";
-  return (
-    <div>
-      <div className="flex justify-between items-center mb-1.5">
-        <span className="text-sm font-semibold" style={{ color }}>{name}</span>
-        <span className="text-xs font-medium" style={{ color }}>{percentage}%</span>
-      </div>
-      <div className="w-full bg-[#e8e3d9] rounded-full h-2">
-        <div
-          className="h-2 rounded-full transition-all"
-          style={{ width: `${percentage}%`, backgroundColor: color }}
-        />
-      </div>
-    </div>
-  );
+/**
+ * 간단한 텍스트 컬러 결정 함수 (배경색의 밝기에 따라 흰색/검정색 선택)
+ */
+function getContrastColor(hexColor: string) {
+  const hex = hexColor.replace("#", "");
+  const r = parseInt(hex.substr(0, 2), 16);
+  const g = parseInt(hex.substr(2, 2), 16);
+  const b = parseInt(hex.substr(4, 2), 16);
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 128 ? "#1c1a17" : "#ffffff";
 }
 
 export default function Resume() {
@@ -85,27 +67,32 @@ export default function Resume() {
 
         {/* ── Skills ── */}
         <section className="mb-12">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[#6b6862] text-center mb-8">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-[#6b6862] text-center mb-10">
             Skills
           </h2>
-          <div className="w-3/4 mx-auto flex flex-col sm:flex-row gap-10">
-
-            <div className="flex-1 space-y-5">
-              <p className="text-lg font-semibold text-[#1c1a17] mb-4">Languages</p>
-              {languages.map(skill => (
-                <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
-              ))}
-            </div>
-
-            <div className="hidden sm:block w-px bg-[#e8e3d9]" />
-
-            <div className="flex-1 space-y-5">
-              <p className="text-lg font-semibold text-[#1c1a17] mb-4">Frameworks & Tools</p>
-              {technicalSkills.map(skill => (
-                <SkillBar key={skill.name} name={skill.name} percentage={skill.percentage} />
-              ))}
-            </div>
-
+          <div className="max-w-3xl mx-auto space-y-6 px-4">
+            {skillCategories.map((category) => (
+              <div key={category.title} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <h3 className="w-full sm:w-40 text-base font-semibold text-[#1c1a17] sm:text-right shrink-0">
+                  {category.title} :
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill.name}
+                      style={{
+                        backgroundColor: `${skill.color}15`, // 15% 투명도 배경
+                        color: skill.color,
+                        borderColor: `${skill.color}30` // 30% 투명도 테두리
+                      }}
+                      className="px-3 py-1 text-xs font-semibold rounded-md border transition-all hover:scale-105"
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
