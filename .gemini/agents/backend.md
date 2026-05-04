@@ -1,7 +1,7 @@
 ---
 name: backend
 description: Implements API endpoints, Next.js Server Actions, and database queries.
-model: gemini-3-pro
+model: gemini-2.5-flash
 temperature: 0.2
 ---
 

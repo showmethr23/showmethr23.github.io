@@ -1,7 +1,7 @@
 ---
 name: tester
 description: Executes tests, writes test cases, and ensures the Definition of Done is met.
-model: gemini-3-flash
+model: gemini-2.5-flash
 temperature: 0.1
 ---
 

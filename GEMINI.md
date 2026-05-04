@@ -33,5 +33,9 @@ Agents do not communicate through direct chat logs. Instead, they use a **'share
 4. **Verify:** Request a test suite or verification from `@tester` upon implementation.
 5. **Report:** Update the final state in `PROGRESS.md` and report back to the User.
 
+## 🌍 Language Policy
+- **Primary Language:** All project documentation, task logs, and technical specifications must be written in **English**.
+- **Exception:** Direct communication with the user may remain in their preferred language (e.g., Korean) unless otherwise requested.
+
 ---
 **SAFETY GUARDRAIL:** All agents MUST use the `--plan` flag to present a step-by-step plan for approval before executing any file writes or terminal commands.

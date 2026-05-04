@@ -1,7 +1,7 @@
 ---
 name: frontend
 description: Builds user interfaces using Next.js App Router, TypeScript, and Tailwind CSS.
-model: gemini-3-pro
+model: gemini-2.5-flash
 temperature: 0.3
 ---
 

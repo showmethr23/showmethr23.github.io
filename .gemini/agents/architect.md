@@ -1,7 +1,7 @@
 ---
 name: architect
 description: Designs system structures, database schemas, and breaks features down into atomic specs.
-model: gemini-3-pro
+model: gemini-2.5-flash
 temperature: 0.2
 ---
 
