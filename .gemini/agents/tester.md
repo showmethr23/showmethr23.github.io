@@ -1,6 +1,6 @@
 ---
 name: tester
-role: Senior QA & Test Engineer
+description: Executes tests, writes test cases, and ensures the Definition of Done is met.
 model: gemini-3-flash
 temperature: 0.1
 ---

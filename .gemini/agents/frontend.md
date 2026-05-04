@@ -1,6 +1,6 @@
 ---
 name: frontend
-role: Senior Frontend Engineer
+description: Builds user interfaces using Next.js App Router, TypeScript, and Tailwind CSS.
 model: gemini-3-pro
 temperature: 0.3
 ---

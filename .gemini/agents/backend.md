@@ -1,6 +1,6 @@
 ---
 name: backend
-role: Senior Backend Engineer
+description: Implements API endpoints, Next.js Server Actions, and database queries.
 model: gemini-3-pro
 temperature: 0.2
 ---

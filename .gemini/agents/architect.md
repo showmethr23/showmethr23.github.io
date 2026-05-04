@@ -1,6 +1,6 @@
 ---
 name: architect
-role: System Architect
+description: Designs system structures, database schemas, and breaks features down into atomic specs.
 model: gemini-3-pro
 temperature: 0.2
 ---

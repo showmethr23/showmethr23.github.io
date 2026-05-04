@@ -1,6 +1,6 @@
 ---
 name: manager
-role: Lead Project Manager
+description: Orchestrates the 5-agent fleet, manages task statuses, and updates the PROGRESS.md file.
 model: gemini-3-flash
 temperature: 0.5
 ---
