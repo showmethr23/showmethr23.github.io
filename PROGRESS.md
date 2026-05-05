@@ -22,6 +22,7 @@ All agents MUST read this index before starting any task to identify relevant co
 | #FEAT-102 | ✅ Done | @frontend | #resume, #ui, #font-alignment | [./.gemini/docs/frontend/resume-skill-font-alignment.md](.gemini/docs/frontend/resume-skill-font-alignment.md) |
 | #UI-201 | ⏳ Pending | @frontend | #auth, #ui | [./.gemini/docs/frontend/login-screen.md] |
 | #TEST-901 | ⏳ Pending | @tester | #auth, #qa | [./.gemini/docs/testing/auth-test-plan.md] |
+| #FEAT-103 | ✅ Done | @frontend | #projects, #ui | [./.gemini/docs/frontend/projects-page-implementation.md] |
 
 ---
 
