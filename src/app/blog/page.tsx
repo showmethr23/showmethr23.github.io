@@ -3,9 +3,11 @@
 import React, { useState, useMemo } from 'react';
 import { posts, Post } from '@/data/posts';
 import Link from 'next/link';
+import { Search } from 'lucide-react';
 
 const BlogPage = () => {
   const [selectedTag, setSelectedTag] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Extract all unique tags from posts
   const allTags = useMemo(() => {
@@ -17,15 +19,26 @@ const BlogPage = () => {
     return Array.from(tags);
   }, []);
 
-  // Filter posts based on selected tag
+  // Filter posts based on selected tag and search query
   const filteredPosts = useMemo(() => {
-    if (selectedTag === 'All') {
-      return [...posts].sort((a, b) => new Date(b.date.replace(/\./g, '-')).getTime() - new Date(a.date.replace(/\./g, '-')).getTime());
+    let filtered = [...posts];
+
+    // Filter by tag
+    if (selectedTag !== 'All') {
+      filtered = filtered.filter((post) => post.tags.includes(selectedTag));
     }
-    return posts
-      .filter((post) => post.tags.includes(selectedTag))
-      .sort((a, b) => new Date(b.date.replace(/\./g, '-')).getTime() - new Date(a.date.replace(/\./g, '-')).getTime());
-  }, [selectedTag]);
+
+    // Filter by search query (title)
+    if (searchQuery.trim() !== '') {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter((post) => 
+        post.title.toLowerCase().includes(query)
+      );
+    }
+
+    // Sort by date
+    return filtered.sort((a, b) => new Date(b.date.replace(/\./g, '-')).getTime() - new Date(a.date.replace(/\./g, '-')).getTime());
+  }, [selectedTag, searchQuery]);
 
   // Define custom colors for each tag
   const getTagStyles = (tag: string, isActive: boolean = false) => {
@@ -57,21 +70,31 @@ const BlogPage = () => {
     <div className="bg-white min-h-screen pb-20">
       {/* Hero & Category Section */}
       <section className="page-container pt-16 pb-12">
-        <h1 className="text-5xl font-bold mb-10 text-[#1c1a17] tracking-tight font-inter">
-          Blog
-        </h1>
-        
-        {/* Tag Filter Bar */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setSelectedTag(tag)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${getTagStyles(tag, selectedTag === tag)}`}
-            >
-              {tag === 'All' ? tag : `#${tag}`}
-            </button>
-          ))}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+          {/* Tag Filter Bar */}
+          <div className="flex flex-wrap gap-3">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setSelectedTag(tag)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${getTagStyles(tag, selectedTag === tag)}`}
+              >
+                {tag === 'All' ? tag : `#${tag}`}
+              </button>
+            ))}
+          </div>
+
+          {/* Search Bar */}
+          <div className="relative w-full md:w-64 lg:w-80">
+            <input
+              type="text"
+              placeholder="Search posts..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 bg-[#f7f4ef] border border-[#e8e3d9] rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-[#1c1a17] focus:border-transparent transition-all"
+            />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6b6862]" />
+          </div>
         </div>
       </section>
 
@@ -114,9 +137,20 @@ const BlogPage = () => {
           </div>
           
           {filteredPosts.length === 0 && (
-            <p className="text-center py-20 text-[#6b6862]">
-              No posts found for this tag.
-            </p>
+            <div className="text-center py-20 flex flex-col items-center gap-4">
+              <Search className="w-12 h-12 text-[#e8e3d9]" />
+              <p className="text-[#6b6862] text-lg">
+                {searchQuery 
+                  ? `No posts found matching "${searchQuery}"`
+                  : "No posts found for this tag."}
+              </p>
+              <button 
+                onClick={() => {setSelectedTag('All'); setSearchQuery('');}}
+                className="text-sm font-semibold text-[#1c1a17] underline underline-offset-4 hover:opacity-70 transition-opacity"
+              >
+                Clear all filters
+              </button>
+            </div>
           )}
         </div>
       </section>
