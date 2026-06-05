@@ -21,6 +21,16 @@ export const timeline: TimelineEvent[] = [
     ],
   },
   {
+    title: "Georgia Institute of Technology",
+    subtitle: "M.S. in Computer Science",
+    from: "2024 Fall",
+    to: "Present",
+    type: "education",
+    bullets: [
+      // 예시: "Developed internal ERP tools using Spring Boot and AWS",
+    ],
+  },
+  {
     title: "University of Bridgeport",
     subtitle: "B.S. Computer Science",
     from: 2020,
