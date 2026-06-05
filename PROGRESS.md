@@ -23,6 +23,7 @@ All agents MUST read this index before starting any task to identify relevant co
 | #UI-201 | ⏳ Pending | @frontend | #auth, #ui | [./.gemini/docs/frontend/login-screen.md] |
 | #TEST-901 | ⏳ Pending | @tester | #auth, #qa | [./.gemini/docs/testing/auth-test-plan.md] |
 | #FEAT-103 | ✅ Done | @frontend | #projects, #ui | [./.gemini/docs/frontend/projects-page-implementation.md] |
+| #FEAT-104 | ✅ Done | @manager | #blog, #ui | [./.gemini/docs/frontend/blog-page-implementation.md] |
 
 ---
 
